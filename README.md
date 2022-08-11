@@ -1,29 +1,23 @@
 # Android Signature Spoofing
 
-How I enabled signature spoofing on my LineageOS 18.1 (android 11) device
+How I enabled signature spoofing on my LineageOS 18.1 (android 11) phone without magisk/root
 
-## Downloading required tools
+## How to
 
-```bash
-mkdir ~/signatureSpoof && cd ~/signatureSpoof
-wget https://github.com/DexPatcher/dexpatcher-tool/releases/download/v1.8.0-beta1/dexpatcher-1.8.0-beta1.jar
-wget https://gitlab.com/oF2pks/haystack/-/archive/11-attempt/haystack-11-attempt.zip && unzip haystack-11-attempt.zip
-```
+First of all, make sure you have a backup (which can be created using TWRP)!
 
-You also need ADB and jar installed on your pc and TWRP recovery on your phone
-
-## Spoofing
-
-First of all, make sure you have a backup!
+You need ADB, java and (un)zip installed on your pc and TWRP recovery on your phone
 
 ```bash
 adb reboot recovery
 ```
 
-Go to mount and enable system
+Go to mount and enable/check system, then run the commands here below
 
 ```bash
-cd ~/signatureSpoof
+mkdir ~/signatureSpoof && cd ~/signatureSpoof
+wget https://github.com/DexPatcher/dexpatcher-tool/releases/download/v1.8.0-beta1/dexpatcher-1.8.0-beta1.jar
+wget https://gitlab.com/oF2pks/haystack/-/archive/11-attempt/haystack-11-attempt.zip && unzip haystack-11-attempt.zip
 
 adb pull /system/framework/services.jar
 cp services.jar services-backup.jar
